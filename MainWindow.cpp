@@ -598,9 +598,11 @@ void MainWindow::loadFunc()
 void MainWindow::initCodec()
 {
     QTextCodec *codec = QTextCodec::codecForName("UTF-8");
-    QTextCodec::setCodecForCStrings(codec);
     QTextCodec::setCodecForLocale(codec);
+#if QT_VERSION_MAJOR < 5
+    QTextCodec::setCodecForCStrings(codec);
     QTextCodec::setCodecForTr(codec);
+#endif
 }
 
 bool MainWindow::connect(QSqlDatabase &db)
