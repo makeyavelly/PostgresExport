@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     dbScript = QSqlDatabase::addDatabase("QPSQL", "ConnectScript");
     dbFunc = QSqlDatabase::addDatabase("QPSQL", "ConnectFunc");
     initCodec();
+    loadSettings();
     connectFunc();
 }
 
@@ -26,11 +27,6 @@ MainWindow::~MainWindow()
 {
     saveSettings();
     delete ui;
-}
-
-void MainWindow::showEvent(QShowEvent *)
-{
-    loadSettings();
 }
 
 

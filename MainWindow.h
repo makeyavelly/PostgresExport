@@ -18,7 +18,6 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void showEvent(QShowEvent *);
 
 private slots:
     void on_btConnectSrc_clicked();
